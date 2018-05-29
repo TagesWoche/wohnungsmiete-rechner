@@ -1,0 +1,319 @@
+#wohnpreise {
+        width: calc( 100% + 5vw + 5vw);
+        max-width: calc( 100% + 5vw + 5vw); 
+        margin: 5px -5vw 5px -5vw;
+        display:flex;
+        flex-direction: row;
+        flex-wrap:wrap;
+        justify-content: space-around;
+        align-content: flex-start;
+        transition: margin .3s;
+        border:1px solid #bababa;
+        
+        padding:30px 30px 60px 30px;
+        background: #3e3e3e; /* Old browsers */
+        background: -moz-linear-gradient(top, #3e3e3e 20%, #171717 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #3e3e3e 20%,#171717 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #3e3e3e 20%,#171717 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e3e3e', endColorstr='#171717',GradientType=0 ); /* IE6-9 */
+    }
+    
+#wohnpreise * {
+        color:white;
+    
+    }
+
+#wohnpreise h2 {
+    width:100%;
+    margin:0 0 10px 0;
+}
+
+#wohnpreise h3 {
+    margin:30px 0 10px 0;
+    font-weight:normal;
+}
+
+#wohnpreise > div { order:1;}
+
+#subtitle {
+    flex-basis:43%;
+}
+
+#subtitle p {
+    margin:0 0 20px 0;
+    font-size:16px;
+}
+
+#wohnpreise p {
+    display:inline-block;
+}
+
+#wohnpreise label {
+    font-size: 2.025rem;
+    font-family:system-ui;
+
+}
+
+#wohnpreise label:hover {
+    cursor: pointer;
+}
+
+.widget {
+    flex-basis:40%;
+}
+
+#result {
+    display:flex;
+    flex-direction: column;
+    order:2 !important;
+    flex-basis: 100%;
+    margin-top:45px;
+}
+
+
+#result > p {
+    margin:0;
+    padding:10px 30px;
+    border:3px solid white;
+    display:inline-block;
+    font-size:30px;
+    text-align: center;
+    width:50%;
+    margin:0 auto;
+    background:url("https://interaktiv.tageswoche.ch/2018/wohnungsmiete/resultbackground.png");
+    background-size: 15%;
+}
+
+
+
+#result h3 {
+    margin:0;
+    text-align: center;
+    
+}
+
+#renovation label {
+    padding:6px 20px;
+    margin-right:8px;
+    width:77px;
+}
+
+
+#flaeche p, #baujahr p {
+    width:80%;
+    margin:0 auto;
+}
+
+#quartier {
+    display:flex;
+    flex-direction: column;
+    padding-top:44px;
+    
+}
+
+#quartier h3 {
+    display:inline-block;
+    margin:0 10px 0 0;
+    align-self:flex-start;
+    margin-bottom:10px;
+}
+
+#quartier div {
+    align-self:flex-start;
+}
+
+/* Styling the Radio Button 
+
+input[type=radio], input[type=checkbox] {
+    display:none;
+}
+input[type=radio] + label:before {
+    content: "";  
+    display: inline-block;  
+    width: 25px;  
+    height: 25px;  
+    vertical-align:middle;
+    margin-right: 8px;  
+    background-color: #30a370;  
+    box-shadow: inset 0px 2px 2px rgba(0, 0, 0, .3);
+    border-radius: 15px;  
+}
+input[type=checkbox] + label:before {
+    content: "";  
+    display: inline-block;  
+    width: 15px;  
+    height: 15px;  
+    vertical-align:middle;
+    margin-right: 8px;  
+    background-color: #30a370;  
+    box-shadow: inset 0px 2px 2px rgba(0, 0, 0, .3);
+    border-radius: 4px;  
+}
+input[type=radio]:checked + label:before {
+    content: "\2022"; 
+    color:white;
+    background-color: #30a370; 
+    font-size:2.8em;
+    text-align:center;
+    line-height:20px;
+    text-shadow:0px 0px 3px #eee;
+}
+input[type=checkbox]:checked + label:before {
+    content:"\2714"; 
+    color:white;
+    background-color: #30a370; 
+    text-align:center;
+    line-height:15px;
+    text-shadow:0px 0px 3px #eee;
+}
+
+*/
+
+/* Styling the Radio Button Nr. 2 */
+
+.switch-field {
+    overflow: hidden;
+}
+
+.switch-title {
+  margin-bottom: 6px;
+}
+
+.switch-field input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+
+.switch-field label {
+  float: left;
+    
+    color:black !important;
+}
+
+.switch-field label {
+  display: inline-block;
+  background-color: #f4f4f4;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  text-shadow: none;
+  padding: 6px 14px;
+  border: 1px solid #c7c7c7;
+  
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition:    all 0.1s ease-in-out;
+  -ms-transition:     all 0.1s ease-in-out;
+  -o-transition:      all 0.1s ease-in-out;
+  transition:         all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+    cursor: pointer;
+}
+
+.switch-field input:checked + label {
+  background-color: #30a370;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+    color:white !important;
+    border-color:#30a370;
+}
+
+
+
+/* Styling the Slider */
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  
+    appearance: none;
+    /* min-width:320px; */
+    max-width: 100%;
+    width:250px;
+    height: 2px; 
+    background: #d3d3d3;
+    background: linear-gradient(to right, #f4f4f4 0%,#e3e3e3 50%,#f4f4f4 100%);
+    outline: none; 
+    opacity: 1; 
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1;
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px; 
+    height: 30px;
+    border-radius:99px;
+    border:1px solid white;
+    background: #164c32; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover, #2A8C63 0%, #30a370 100%); /* FF3.6-15 */
+background: -webkit-radial-gradient(center, ellipse cover, #2A8C63 0%,#30a370 100%); /* Chrome10-25,Safari5.1-6 */
+background: radial-gradient(ellipse at center, #2A8C63 0%,#30a370 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2A8C63', endColorstr='#30a370',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; 
+    height: 45px;
+    background: #4CAF50;
+    cursor: pointer; 
+}
+
+/* Styling the Dropdown */
+.profil-form__select:after {
+    border-color:#383838;
+    border-bottom-color:white;
+    border-left-color:white;
+}
+
+.profil-form__select {
+    margin:0;
+    display:inline-block;
+    border-color:white;
+}
+
+.profil-form__select select {width:200px;}
+
+
+/* Additional Odometer Styles */
+
+.odometer-value {
+    font-weight:bold;
+    font-size:40px;
+}
+
+.odometer-digit {
+    width:26px;
+}
+
+/* Media Rules */
+
+@media only screen and (max-width: 540px) {
+ 
+    #wohnpreise {flex-direction: row; padding:15px 15px 30px 15px;}
+    #quartier {flex-direction: row; padding-top:5px;}
+    #quartier h3 {margin-top: 9px;}
+    .widget {flex-basis:50%;}
+    .slider {width:auto;}
+    #wohnpreise > div { order:3;}
+    #subtitle {order:1 !important; flex-basis:100%;}
+    #result {order:2 !important; display:flex; margin-top:0;}
+    #result p {margin-bottom:30px;}
+    #result h3 {display: inline-block;}
+    #zimmer label, #renovation label {min-width:44px; margin:0;}
+    #result > p { width:100%; background:none;}
+    
+    
+}

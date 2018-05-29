@@ -1,0 +1,66 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="odometer-theme.css">
+
+<script src="bundle.js"></script>
+<script src="odometer.js"></script>
+
+<div id="wohnpreise"> 
+    <div id="subtitle" class="widget">
+        <h2>Der Titel des Gedöns</h2>
+        <p>Definieren Sie Ihre Mietbedingungen und lassen Sie sich Ihre optimalen Mietkosten anzeigen.</p>
+    </div>
+    
+    <div class="widget" id="quartier">
+        <h3>Quartier</h3> 
+        <div class="profil-form__select ">
+            <select name="quartier"> 
+                <option value="amring">Am Ring</option> 
+                <option value="breite">Breite</option> 
+                <option value="gundeldingen">Gundeldingen</option> 
+            </select> 
+        </div>
+    </div>
+    
+    
+    
+    <div id="result" class="widget">
+        <h3>Marktüblicher Mietpreis</h3>
+        <p class="odometer">4000.-</p>
+    
+    </div>
+    
+    <div id="zimmer" class="widget switch-field">
+        <h3>Anzahl Zimmer</h3> 
+        <form>
+            <input type="radio" value="1" id="1" name="anzahlzimmer"><label for="1">1</label>
+            <input type="radio" value="2" id="2" name="anzahlzimmer"><label for="2">2</label>
+            <input type="radio" value="3" id="3" name="anzahlzimmer"><label for="3">3</label>
+            <input type="radio" value="4" id="4" name="anzahlzimmer"><label for="4">4</label>
+            <input type="radio" value="5" id="5" name="anzahlzimmer"><label for="5">5</label>
+            <input type="radio" value="6" id="6" name="anzahlzimmer"><label for="6">6</label> 
+        </form> 
+    </div>
+    
+    <div id="renovation" class="widget switch-field">
+        <h3>Renovation</h3> 
+        <form> 
+            <input type="radio" value="ja" id="ja" name="radiorenoviert"><label for="ja">Ja</label>
+            <input type="radio" value="nein" id="nein" name="radiorenoviert"><label for="nein">Nein</label> 
+        </form> 
+    </div>
+    
+    
+    <div id="flaeche" class="widget">
+        <h3>Wohnfläche: <span id="wohnflaechevalue"></span></h3>
+        <input type="range" min="0" max="1000" value="500" id="wohnflaeche" class="slider"> 
+    </div>
+    
+    <div id="baujahr" class="widget">
+        <h3>Baujahr: <span id="baujahrvalue" ></span></h3> 
+        <input type="range" min="1840" max="2018" value="1990" id="baujahr" class="slider"> 
+    </div>
+    
+    
+    
+
+</div>
