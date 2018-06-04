@@ -1,4 +1,4 @@
-import * as d3 from 'd3'
+import { csv } from 'd3-request'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
@@ -20,12 +20,11 @@ class App extends React.Component {
     }
     componentDidMount() {
         // Load data when the component mounts
-        d3.csv('https://interaktiv.tageswoche.ch/2018/wohnungsmiete/mietpreise.csv')
-        	.then((data) => {
+        csv('https://interaktiv.tageswoche.ch/2018/wohnungsmiete/mietpreise.csv', (error, data) => {
             	this.setState({
             		data: data
             	})
-            })
+        })
     }
 
     render() {
@@ -69,11 +68,13 @@ class App extends React.Component {
     	return (
             <div id='wohnpreise'>
                 <div id='subtitle' className='widget'>
-                    <h2>Der Titel des Gedöns</h2>
-                    <p>Definieren Sie Ihre Mietbedingungen und lassen Sie sich Ihre optimalen Mietkosten anzeigen.</p>
+                    <h2>Wohnen Sie zu teuer?</h2>
+                    <p>
+                    Tragen Sie alle Informationen ein und berechnen Sie, welche Nettomiete für Ihre Wohnung angebracht wäre.
+                    </p>
                 </div>
                 <div className='widget' id='quartier'>
-                    <h3>Quartiere</h3>
+                    <h3>Quartier</h3>
                     <div className='profil-form__select'>
                         <select name='quartier' value={this.state.quartier}
                             onChange={(d) => this.setState({ quartier: d.target.value })}>
@@ -85,8 +86,8 @@ class App extends React.Component {
                 </div>
 
                 <div id='result' className='widget'>
-                    <h3>marktüblicher Mietpreis</h3>
-                    <Odometer value={price} format='(&rsquo;ddd),dd' />
+                    <h3>marktübliche Nettomiete in CHF</h3>
+                    <Odometer value={price} format='d' />
                 </div>
 
                 <div id='zimmer' className='widget switch-field'>
@@ -129,7 +130,7 @@ class App extends React.Component {
                 </div>
 
                 <div id='renovation' className='widget switch-field'>
-                    <h3>Renovation</h3>
+                    <h3>Renoviert?</h3>
                     <input type='radio' value='ja' id='ja'
                         checked={this.state.renovated === 'ja'}
                         onChange={(d) => this.setState({ renovated: d.target.value })}
@@ -144,15 +145,14 @@ class App extends React.Component {
                 </div>
 
                 <div id='flaeche' className='widget'>
-                    <h3>Wohnfläche: <span>{this.state.size}</span></h3>
-                    <input className='slider' id='wohnflaeche' type='range' min={1} max={1000} step={1} value={this.state.size} onChange={(d) => this.setState({ size: d.target.value })} />
+                    <h3>Fläche: <span>{this.state.size}</span></h3>
+                    <input className='slider' id='wohnflaeche' type='range' min={10} max={300} step={1} value={this.state.size} onChange={(d) => this.setState({ size: d.target.value })} />
                 </div>
 
                 <div id='baujahr' className='widget'>
                     <h3>Baujahr: <span>{this.state.year}</span></h3>
                     <input className='slider' id='baujahr' type='range' min={1900} max={2018} step={1} value={this.state.year} onChange={(d) => this.setState({ year: d.target.value })} />
                 </div>
-
 
     		</div>
         )

@@ -71,7 +71,7 @@
 }
 
 
-#result > p {
+#result > .odometer {
     margin:0;
     padding:10px 30px;
     border:3px solid white;
@@ -80,8 +80,6 @@
     text-align: center;
     width:50%;
     margin:0 auto;
-    background:url("https://interaktiv.tageswoche.ch/2018/wohnungsmiete/resultbackground.png");
-    background-size: 15%;
 }
 
 
@@ -256,7 +254,7 @@ input[type=checkbox]:checked + label:before {
     height: 30px;
     border-radius:99px;
     border:1px solid white;
-    background: #164c32; /* Old browsers */
+    background: #30a370; /* Old browsers */
 background: -moz-radial-gradient(center, ellipse cover, #2A8C63 0%, #30a370 100%); /* FF3.6-15 */
 background: -webkit-radial-gradient(center, ellipse cover, #2A8C63 0%,#30a370 100%); /* Chrome10-25,Safari5.1-6 */
 background: radial-gradient(ellipse at center, #2A8C63 0%,#30a370 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -265,9 +263,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2A8C63', end
 }
 
 .slider::-moz-range-thumb {
-    width: 25px; 
-    height: 45px;
-    background: #4CAF50;
+    width: 30px; 
+    height: 30px;
+    border-radius:99px;
+    border:1px solid white;
+    background: #30a370; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover, #2A8C63 0%, #30a370 100%); /* FF3.6-15 */
+background: -webkit-radial-gradient(center, ellipse cover, #2A8C63 0%,#30a370 100%); /* Chrome10-25,Safari5.1-6 */
+background: radial-gradient(ellipse at center, #2A8C63 0%,#30a370 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2A8C63', endColorstr='#30a370',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     cursor: pointer; 
 }
 
@@ -289,14 +293,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2A8C63', end
 
 /* Additional Odometer Styles */
 
+.odometer {
+    overflow:hidden;
+}
+
 .odometer-value {
     font-weight:bold;
     font-size:40px;
 }
 
 .odometer-digit {
-    width:26px;
+    padding-right: 6px;
+    margin-right:3px;
 }
+
 
 /* Media Rules */
 
@@ -310,10 +320,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2A8C63', end
     #wohnpreise > div { order:3;}
     #subtitle {order:1 !important; flex-basis:100%;}
     #result {order:2 !important; display:flex; margin-top:0;}
-    #result p {margin-bottom:30px;}
+    #result .odometer {margin-bottom:30px;}
     #result h3 {display: inline-block;}
     #zimmer label, #renovation label {min-width:44px; margin:0;}
-    #result > p { width:100%; background:none;}
+    #result > .odometer { width:100%; background:none;}
     
     
 }
