@@ -15,15 +15,16 @@ export class RadioButtons extends React.Component {
                 <h3>{this.props.title}</h3>
                 {this.props.options.map((d) => {
                     return (
-                        <label htmlFor={d} key={d}>
+                        <span>
                             <input onChange={ this.handleChange }
                                 name={this.props.name}
                                 type='radio'
                                 value={d}
                                 id={d}
-                                checked = {this.props.checked === d } />
-                            {d}
-                        </label>
+                                key={d}
+                                checked = {this.props.checkedBox === d} />
+                            <label htmlFor={d} key={d}>{d}</label>
+                        </span>
                     )
                 })}
             </div>

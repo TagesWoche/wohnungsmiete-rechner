@@ -123,13 +123,13 @@ class App extends React.Component {
                     title='Anzahl Zimmer'
                     options={allRooms}
                     radioClick={this.changeRooms}
-                    checked={this.state.rooms} />
+                    checkedBox={this.state.rooms} />
 
                 <RadioButtons name='renovation'
                     title='Renoviert?'
                     options={renovation}
                     radioClick={this.changeRenovation}
-                    checked={this.state.renovated} />
+                    checkedBox={this.state.renovated} />
 
                 <Slider name='flaeche'
                     title='Fläche'
