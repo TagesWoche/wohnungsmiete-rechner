@@ -2,7 +2,8 @@ import { csv } from 'd3-request'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Odometer from 'react-odometerjs'
+import { Result } from './result'
+import { SelectMenu } from './select'
 
 // Application file
 class App extends React.Component {
@@ -18,12 +19,20 @@ class App extends React.Component {
             size: 60
         }
     }
+
     componentDidMount() {
         // Load data when the component mounts
         csv('https://interaktiv.tageswoche.ch/2018/wohnungsmiete/mietpreise.csv', (error, data) => {
             	this.setState({
             		data: data
             	})
+        })
+    }
+
+    chooseDistrict = (newDistrict) => {
+        console.log(newDistrict)
+        this.setState({
+            quartier: newDistrict
         })
     }
 
@@ -36,6 +45,8 @@ class App extends React.Component {
         })
 
         const quartiereAll = [...new Set(this.state.data.map(d => d.quartier))]
+
+        console.log(quartiereAll)
 
         let selectedYearRange
 
@@ -73,22 +84,12 @@ class App extends React.Component {
                     Tragen Sie alle Informationen ein und berechnen Sie, welche Nettomiete für Ihre Wohnung angebracht wäre.
                     </p>
                 </div>
-                <div className='widget' id='quartier'>
-                    <h3>Quartier</h3>
-                    <div className='profil-form__select'>
-                        <select name='quartier' value={this.state.quartier}
-                            onChange={(d) => this.setState({ quartier: d.target.value })}>
-                            {quartiereAll.map((d) => {
-                                return <option key={d}>{d}</option>
-                            })}
-                        </select>
-                    </div>
-                </div>
 
-                <div id='result' className='widget'>
-                    <h3>marktübliche Nettomiete in CHF</h3>
-                    <Odometer value={price} format='d' />
-                </div>
+                <SelectMenu name='quartier' options={quartiereAll}
+                    value={this.state.quartier}
+                    chooseDistrict={this.chooseDistrict} />
+
+                <Result price={price} />
 
                 <div id='zimmer' className='widget switch-field'>
                     <h3>Anzahl Zimmer</h3>
