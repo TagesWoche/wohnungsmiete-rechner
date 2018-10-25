@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 
 import { Result } from './result'
 import { SelectMenu } from './select'
+import { RadioButtons } from './radio'
 
 // Application file
 class App extends React.Component {
@@ -36,6 +37,13 @@ class App extends React.Component {
         })
     }
 
+    changeRooms = (newRoom) => {
+        console.log(newRoom)
+        this.setState({
+            rooms: newRoom
+        })
+    }
+
     render() {
     	// filter
     	let selectedData = this.state.data.filter((d) => {
@@ -46,7 +54,8 @@ class App extends React.Component {
 
         const quartiereAll = [...new Set(this.state.data.map(d => d.quartier))]
 
-        console.log(quartiereAll)
+        const allRooms = [1, 2, 3, 4, 5, 6]
+        const renovation = ['ja', 'nein']
 
         let selectedYearRange
 
@@ -85,50 +94,19 @@ class App extends React.Component {
                     </p>
                 </div>
 
-                <SelectMenu name='quartier' options={quartiereAll}
+                <SelectMenu name='quartier'
+                    title='Quartier'
+                    options={quartiereAll}
                     value={this.state.quartier}
                     chooseDistrict={this.chooseDistrict} />
 
                 <Result price={price} />
 
-                <div id='zimmer' className='widget switch-field'>
-                    <h3>Anzahl Zimmer</h3>
-                    <input type='radio' value='1' id='1'
-                        checked={this.state.rooms === '1'}
-                        onChange={(d) => this.setState({ rooms: d.target.value })}
-                        name='anzahlzimmer' />
-                    <label htmlFor='1'>1</label>
-
-                    <input type='radio' value='2' id='2'
-                        checked={this.state.rooms === '2'}
-                        onChange={(d) => this.setState({ rooms: d.target.value })}
-                        name='anzahlzimmer' />
-                    <label htmlFor='2'>2</label>
-
-                    <input type='radio' value='3' id='3'
-                        checked={this.state.rooms === '3'}
-                        onChange={(d) => this.setState({ rooms: d.target.value })}
-                        name='anzahlzimmer' />
-                    <label htmlFor='3'>3</label>
-
-                    <input type='radio' value='4' id='4'
-                        checked={this.state.rooms === '4'}
-                        onChange={(d) => this.setState({ rooms: d.target.value })}
-                        name='anzahlzimmer' />
-                    <label htmlFor='4'>4</label>
-
-                    <input type='radio' value='5' id='5'
-                        checked={this.state.rooms === '5'}
-                        onChange={(d) => this.setState({ rooms: d.target.value })}
-                        name='anzahlzimmer' />
-                    <label htmlFor='5'>5</label>
-
-                    <input type='radio' value='6' id='6'
-                        checked={this.state.rooms === '6'}
-                        onChange={(d) => this.setState({ rooms: d.target.value })}
-                        name='anzahlzimmer' />
-                    <label htmlFor='6'>6</label>
-                </div>
+                <RadioButtons name='zimmer'
+                    title='Anzahl Zimmer'
+                    options={allRooms}
+                    changeRooms={this.changeRooms}
+                    checked={this.state.rooms} />
 
                 <div id='renovation' className='widget switch-field'>
                     <h3>Renoviert?</h3>
