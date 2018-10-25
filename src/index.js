@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom'
 import { Result } from './result'
 import { SelectMenu } from './select'
 import { RadioButtons } from './radio'
+import { Slider } from './slider'
 
 // Application file
 class App extends React.Component {
@@ -31,26 +32,34 @@ class App extends React.Component {
     }
 
     chooseDistrict = (newDistrict) => {
-        console.log(newDistrict)
         this.setState({
             quartier: newDistrict
         })
     }
 
     changeRooms = (newRoom) => {
-        console.log(newRoom)
         this.setState({
             rooms: newRoom
         })
     }
 
     changeRenovation = (newRenovation) => {
-        console.log(newRenovation)
         this.setState({
             renovated: newRenovation
         })
     }
 
+    changeSize = (newSize) => {
+        this.setState({
+            size: newSize
+        })
+    }
+
+    changeYear = (newYear) => {
+        this.setState({
+            year: newYear
+        })
+    }
     render() {
     	// filter
     	let selectedData = this.state.data.filter((d) => {
@@ -122,16 +131,21 @@ class App extends React.Component {
                     radioClick={this.changeRenovation}
                     checked={this.state.renovated} />
 
+                <Slider name='flaeche'
+                    title='Fläche'
+                    value={this.state.size}
+                    min={10}
+                    max={300}
+                    step={1}
+                    sliderMove={this.changeSize} />
 
-                <div id='flaeche' className='widget'>
-                    <h3>Fläche: <span>{this.state.size}</span></h3>
-                    <input className='slider' id='wohnflaeche' type='range' min={10} max={300} step={1} value={this.state.size} onChange={(d) => this.setState({ size: d.target.value })} />
-                </div>
-
-                <div id='baujahr' className='widget'>
-                    <h3>Baujahr: <span>{this.state.year}</span></h3>
-                    <input className='slider' id='baujahr' type='range' min={1900} max={2018} step={1} value={this.state.year} onChange={(d) => this.setState({ year: d.target.value })} />
-                </div>
+                <Slider name='baujahr'
+                    title='Baujahr'
+                    value={this.state.year}
+                    min={1900}
+                    max={2018}
+                    step={1}
+                    sliderMove={this.changeYear} />
 
     		</div>
         )
