@@ -5,8 +5,8 @@ export class RadioButtons extends React.Component {
         super(props)
     }
     handleChange = (e) => {
-        const room = e.target.value
-        this.props.changeRooms(room)
+        const radioValue = e.target.value
+        this.props.radioClick(radioValue)
     }
 
     render() {
@@ -21,7 +21,7 @@ export class RadioButtons extends React.Component {
                                 type='radio'
                                 value={d}
                                 id={d}
-                                checked = {this.props.checked == d } />
+                                checked = {this.props.checked === d } />
                             {d}
                         </label>
                     )

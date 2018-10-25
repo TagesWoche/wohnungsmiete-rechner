@@ -44,6 +44,13 @@ class App extends React.Component {
         })
     }
 
+    changeRenovation = (newRenovation) => {
+        console.log(newRenovation)
+        this.setState({
+            renovated: newRenovation
+        })
+    }
+
     render() {
     	// filter
     	let selectedData = this.state.data.filter((d) => {
@@ -54,7 +61,7 @@ class App extends React.Component {
 
         const quartiereAll = [...new Set(this.state.data.map(d => d.quartier))]
 
-        const allRooms = [1, 2, 3, 4, 5, 6]
+        const allRooms = ['1', '2', '3', '4', '5', '6']
         const renovation = ['ja', 'nein']
 
         let selectedYearRange
@@ -84,6 +91,7 @@ class App extends React.Component {
         })
 
         let price = marketPrice[0]
+        console.log(price)
 
     	return (
             <div id='wohnpreise'>
@@ -97,7 +105,7 @@ class App extends React.Component {
                 <SelectMenu name='quartier'
                     title='Quartier'
                     options={quartiereAll}
-                    value={this.state.quartier}
+                    selected={this.state.quartier}
                     chooseDistrict={this.chooseDistrict} />
 
                 <Result price={price} />
@@ -105,23 +113,15 @@ class App extends React.Component {
                 <RadioButtons name='zimmer'
                     title='Anzahl Zimmer'
                     options={allRooms}
-                    changeRooms={this.changeRooms}
+                    radioClick={this.changeRooms}
                     checked={this.state.rooms} />
 
-                <div id='renovation' className='widget switch-field'>
-                    <h3>Renoviert?</h3>
-                    <input type='radio' value='ja' id='ja'
-                        checked={this.state.renovated === 'ja'}
-                        onChange={(d) => this.setState({ renovated: d.target.value })}
-                        name='radiorenoviert' />
-                    <label htmlFor='ja'>ja</label>
+                <RadioButtons name='renovation'
+                    title='Renoviert?'
+                    options={renovation}
+                    radioClick={this.changeRenovation}
+                    checked={this.state.renovated} />
 
-                    <input type='radio' value='nein' id='nein'
-                        checked={this.state.renovated === 'nein'}
-                        onChange={(d) => this.setState({ renovated: d.target.value })}
-                        name='radiorenoviert' />
-                    <label htmlFor='nein'>nein</label>
-                </div>
 
                 <div id='flaeche' className='widget'>
                     <h3>Fläche: <span>{this.state.size}</span></h3>
